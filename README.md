@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonar.klauke-enterprises.com/api/project_badges/measure?project=maven-project-template&metric=alert_status)](https://sonar.klauke-enterprises.com/dashboard?id=maven-project-template)
+
 # maven-project-template
 
 Read full blog post: https://medium.com/felixklauke/ci-with-github-travisci-and-sonatype-nexus-baac333596c3
