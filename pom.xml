@@ -89,4 +89,11 @@
         <developerConnection>scm:git:git:https://github.com/FelixKlauke/maven-project-template</developerConnection>
         <url>https://github.com/FelixKlauke/maven-project-template</url>
     </scm>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://github.com/FelixKlauke/maven-project-template/blob/master/LICENSE</url>
+        </license>
+    </licenses>
 </project>
