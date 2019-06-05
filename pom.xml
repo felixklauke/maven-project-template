@@ -84,4 +84,9 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:git:https://github.com/FelixKlauke/maven-project-template</connection>
+        <developerConnection>scm:git:git:https://github.com/FelixKlauke/maven-project-template</developerConnection>
+        <url>https://github.com/FelixKlauke/maven-project-template</url>
+    </scm>
 </project>
