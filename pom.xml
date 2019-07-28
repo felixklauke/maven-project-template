@@ -154,6 +154,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <properties>
+    <!-- General -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     <!-- Sonar -->
     <junit-jupiter.version>5.4.2</junit-jupiter.version>
     <maven.plguin.surefire.version>2.22.2</maven.plguin.surefire.version>
