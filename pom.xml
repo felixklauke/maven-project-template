@@ -2,40 +2,44 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.felixklauke.mpt</groupId>
   <artifactId>maven-project-template</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
 
   <build>
     <plugins>
 
       <!-- Maven Surefire -->
       <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven.plguin.surefire.version}</version>
       </plugin>
 
       <!-- Maven Compiler -->
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.plugin.compiler.version}</version>
         <configuration>
           <source>11</source>
           <target>11</target>
         </configuration>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>${maven.plugin.compiler.version}</version>
       </plugin>
 
       <!-- Maven release plugin -->
       <plugin>
-        <artifactId>maven-release-plugin</artifactId>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
         <version>${maven.plugin.release.version}</version>
       </plugin>
 
       <!-- SonarQube -->
       <plugin>
-        <artifactId>sonar-maven-plugin</artifactId>
         <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
         <version>${maven.plugin.sonar.version}</version>
       </plugin>
 
@@ -132,26 +136,28 @@
     <repository>
       <id>klauke-enterprises-maven-releases</id>
       <name>Klauke Enterprises Maven Releases</name>
-      <url>https://repository.klauke-enterprises.com/repository/maven-releases/</url>
+      <url>
+        https://repository.klauke-enterprises.com/repository/maven-releases/
+      </url>
     </repository>
 
     <snapshotRepository>
       <id>klauke-enterprises-maven-snapshots</id>
       <name>Klauke Enterprises Maven Snapshots</name>
-      <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
+      <url>
+        https://repository.klauke-enterprises.com/repository/maven-snapshots/
+      </url>
     </snapshotRepository>
   </distributionManagement>
-
-  <groupId>com.felixklauke.mpt</groupId>
 
   <licenses>
     <license>
       <name>Apache License 2.0</name>
-      <url>https://github.com/FelixKlauke/maven-project-template/blob/master/LICENSE</url>
+      <url>
+        https://github.com/FelixKlauke/maven-project-template/blob/master/LICENSE
+      </url>
     </license>
   </licenses>
-
-  <modelVersion>4.0.0</modelVersion>
 
   <properties>
     <!-- General -->
@@ -168,7 +174,8 @@
     <maven.plugin.release.version>2.5.3</maven.plugin.release.version>
     <maven.plugin.sonar.version>3.6.0.1398</maven.plugin.sonar.version>
     <maven.plugin.source.version>3.1.0</maven.plugin.source.version>
-    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
+    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec
+    </sonar.jacoco.reportPaths>
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 
     <!-- Dependencies -->
@@ -176,11 +183,13 @@
   </properties>
 
   <scm>
-    <connection>scm:git:git:https://github.com/FelixKlauke/maven-project-template</connection>
-    <developerConnection>scm:git:git:https://github.com/FelixKlauke/maven-project-template
+    <connection>
+      scm:git:git:https://github.com/FelixKlauke/maven-project-template
+    </connection>
+    <developerConnection>
+      scm:git:git:https://github.com/FelixKlauke/maven-project-template
     </developerConnection>
     <url>https://github.com/FelixKlauke/maven-project-template</url>
   </scm>
 
-  <version>1.0.0-SNAPSHOT</version>
 </project>
