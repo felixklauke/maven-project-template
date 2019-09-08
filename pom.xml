@@ -8,6 +8,93 @@
   <artifactId>maven-project-template</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
+
+  <properties>
+    <!-- General -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Sonar -->
+    <junit-jupiter.version>5.4.2</junit-jupiter.version>
+    <maven.plguin.surefire.version>2.22.2</maven.plguin.surefire.version>
+    <maven.plugin.compiler.version>3.8.1</maven.plugin.compiler.version>
+
+    <!-- Maven -->
+    <maven.plugin.jacoco.version>0.8.4</maven.plugin.jacoco.version>
+    <maven.plugin.javadoc.version>3.1.0</maven.plugin.javadoc.version>
+    <maven.plugin.release.version>2.5.3</maven.plugin.release.version>
+    <maven.plugin.sonar.version>3.6.0.1398</maven.plugin.sonar.version>
+    <maven.plugin.source.version>3.1.0</maven.plugin.source.version>
+    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec
+    </sonar.jacoco.reportPaths>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+
+    <!-- Dependencies -->
+    <sonar.language>java</sonar.language>
+  </properties>
+
+  <developers>
+    <developer>
+      <email>info@felix-klauke.de</email>
+      <id>felixklauke</id>
+      <name>Felix Klauke</name>
+    </developer>
+  </developers>
+
+  <distributionManagement>
+    <repository>
+      <id>klauke-enterprises-maven-releases</id>
+      <name>Klauke Enterprises Maven Releases</name>
+      <url>
+        https://repository.klauke-enterprises.com/repository/maven-releases/
+      </url>
+    </repository>
+
+    <snapshotRepository>
+      <id>klauke-enterprises-maven-snapshots</id>
+      <name>Klauke Enterprises Maven Snapshots</name>
+      <url>
+        https://repository.klauke-enterprises.com/repository/maven-snapshots/
+      </url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>
+        https://github.com/FelixKlauke/maven-project-template/blob/master/LICENSE
+      </url>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>
+      scm:git:git:https://github.com/FelixKlauke/maven-project-template
+    </connection>
+    <developerConnection>
+      scm:git:git:https://github.com/FelixKlauke/maven-project-template
+    </developerConnection>
+    <url>https://github.com/FelixKlauke/maven-project-template</url>
+  </scm>
+
+  <dependencies>
+    <!-- JUnit Jupiter -->
+    <dependency>
+      <artifactId>junit-jupiter-api</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>5.4.2</version>
+    </dependency>
+
+    <!-- Junit Jupiter Engine -->
+    <dependency>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>5.4.2</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
 
@@ -107,89 +194,5 @@
 
     </plugins>
   </build>
-  <dependencies>
-    <!-- JUnit Jupiter -->
-    <dependency>
-      <artifactId>junit-jupiter-api</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>test</scope>
-      <version>5.4.2</version>
-    </dependency>
-
-    <!-- Junit Jupiter Engine -->
-    <dependency>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>test</scope>
-      <version>5.4.2</version>
-    </dependency>
-  </dependencies>
-  <developers>
-    <developer>
-      <email>info@felix-klauke.de</email>
-      <id>felixklauke</id>
-      <name>Felix Klauke</name>
-    </developer>
-  </developers>
-
-  <distributionManagement>
-    <repository>
-      <id>klauke-enterprises-maven-releases</id>
-      <name>Klauke Enterprises Maven Releases</name>
-      <url>
-        https://repository.klauke-enterprises.com/repository/maven-releases/
-      </url>
-    </repository>
-
-    <snapshotRepository>
-      <id>klauke-enterprises-maven-snapshots</id>
-      <name>Klauke Enterprises Maven Snapshots</name>
-      <url>
-        https://repository.klauke-enterprises.com/repository/maven-snapshots/
-      </url>
-    </snapshotRepository>
-  </distributionManagement>
-
-  <licenses>
-    <license>
-      <name>Apache License 2.0</name>
-      <url>
-        https://github.com/FelixKlauke/maven-project-template/blob/master/LICENSE
-      </url>
-    </license>
-  </licenses>
-
-  <properties>
-    <!-- General -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <!-- Sonar -->
-    <junit-jupiter.version>5.4.2</junit-jupiter.version>
-    <maven.plguin.surefire.version>2.22.2</maven.plguin.surefire.version>
-    <maven.plugin.compiler.version>3.8.1</maven.plugin.compiler.version>
-
-    <!-- Maven -->
-    <maven.plugin.jacoco.version>0.8.4</maven.plugin.jacoco.version>
-    <maven.plugin.javadoc.version>3.1.0</maven.plugin.javadoc.version>
-    <maven.plugin.release.version>2.5.3</maven.plugin.release.version>
-    <maven.plugin.sonar.version>3.6.0.1398</maven.plugin.sonar.version>
-    <maven.plugin.source.version>3.1.0</maven.plugin.source.version>
-    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec
-    </sonar.jacoco.reportPaths>
-    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-
-    <!-- Dependencies -->
-    <sonar.language>java</sonar.language>
-  </properties>
-
-  <scm>
-    <connection>
-      scm:git:git:https://github.com/FelixKlauke/maven-project-template
-    </connection>
-    <developerConnection>
-      scm:git:git:https://github.com/FelixKlauke/maven-project-template
-    </developerConnection>
-    <url>https://github.com/FelixKlauke/maven-project-template</url>
-  </scm>
 
 </project>
