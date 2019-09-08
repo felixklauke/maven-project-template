@@ -34,9 +34,12 @@
 
   <developers>
     <developer>
-      <email>info@felix-klauke.de</email>
       <id>felixklauke</id>
+      <email>info@felix-klauke.de</email>
       <name>Felix Klauke</name>
+      <url>https://www.felix-klauke.com</url>
+      <organization>Klauke Enterprises</organization>
+      <organizationUrl>https://www.klauke-enterprises.com</organizationUrl>
     </developer>
   </developers>
 
