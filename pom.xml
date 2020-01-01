@@ -19,7 +19,7 @@
     <maven.plugin.compiler.version>3.8.1</maven.plugin.compiler.version>
 
     <!-- Maven -->
-    <maven.plugin.jacoco.version>0.8.4</maven.plugin.jacoco.version>
+    <maven.plugin.jacoco.version>0.8.5</maven.plugin.jacoco.version>
     <maven.plugin.javadoc.version>3.1.0</maven.plugin.javadoc.version>
     <maven.plugin.release.version>2.5.3</maven.plugin.release.version>
     <maven.plugin.sonar.version>3.6.0.1398</maven.plugin.sonar.version>
