@@ -1,33 +1,33 @@
 package com.felixklauke.mpt;
 
-public class PinkFluffyUnicorn {
+import java.util.Objects;
+
+public final class PinkFluffyUnicorn {
 
   private final String name;
   private final int age;
   private final long cutenessLevel;
 
-  /**
-   * Create a new pink fluffy unicorn.
-   *
-   * @param name The name of the unicorn.
-   * @param age The age of the unicorn.
-   * @param cutenessLevel The cuteness level of the unicorn.
-   */
-  public PinkFluffyUnicorn(String name, int age, long cutenessLevel) {
+  private PinkFluffyUnicorn(String name, int age, long cutenessLevel) {
     this.name = name;
     this.age = age;
     this.cutenessLevel = cutenessLevel;
   }
 
-  public String getName() {
+  public static PinkFluffyUnicorn of(String name, int age, long cutenessLevel) {
+    Objects.requireNonNull(name);
+    return new PinkFluffyUnicorn(name, age, cutenessLevel);
+  }
+
+  public String name() {
     return name;
   }
 
-  public int getAge() {
+  public int age() {
     return age;
   }
 
-  public long getCutenessLevel() {
+  public long cutenessLevel() {
     return cutenessLevel;
   }
 }
