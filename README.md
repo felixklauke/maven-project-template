@@ -1,4 +1,7 @@
-
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=FelixKlauke_maven-project-template&metric=alert_status)](https://sonarcloud.io/dashboard?id=FelixKlauke_maven-project-template)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=FelixKlauke_maven-project-template&metric=coverage)](https://sonarcloud.io/dashboard?id=FelixKlauke_maven-project-template)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=FelixKlauke_maven-project-template&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=FelixKlauke_maven-project-template)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=FelixKlauke_maven-project-template&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=FelixKlauke_maven-project-template)
 
 # maven-project-template
 
