@@ -4,44 +4,154 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.felixklauke.mpt</groupId>
-  <artifactId>maven-project-template</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-
 
   <properties>
-    <!-- General -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <!-- Sonar -->
-    <junit-jupiter.version>5.4.2</junit-jupiter.version>
-    <maven.plguin.surefire.version>2.22.2</maven.plguin.surefire.version>
-    <maven.plugin.compiler.version>3.8.1</maven.plugin.compiler.version>
-
-    <!-- Maven -->
-    <maven.plugin.jacoco.version>0.8.5</maven.plugin.jacoco.version>
-    <maven.plugin.javadoc.version>3.1.1</maven.plugin.javadoc.version>
-    <maven.plugin.release.version>2.5.3</maven.plugin.release.version>
-    <maven.plugin.sonar.version>3.7.0.1746</maven.plugin.sonar.version>
-    <maven.plugin.source.version>3.2.1</maven.plugin.source.version>
-    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec
-    </sonar.jacoco.reportPaths>
-    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-
-    <!-- Dependencies -->
-    <sonar.language>java</sonar.language>
   </properties>
 
+  <artifactId>maven-project-template</artifactId>
+  <groupId>com.felixklauke.mpt</groupId>
+  <version>1.0.0-SNAPSHOT</version>
+
+  <build>
+    <plugins>
+
+      <!-- Maven Surefire -->
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.0.0-M4</version>
+      </plugin>
+
+      <!-- Maven Compiler -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+
+      <!-- Maven release plugin -->
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.0.0-M1</version>
+      </plugin>
+
+      <!-- SonarQube -->
+      <plugin>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <version>3.7.0.1746</version>
+      </plugin>
+
+      <!-- JaCocCo -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.3</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+            <id>jacoco-initialize</id>
+          </execution>
+          <execution>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <id>jacoco-site</id>
+            <phase>package</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Maven Source plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <id>attach-sources</id>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Maven JavaDocs plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <id>attach-javadocs</id>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Maven Checkstyle Plugin -->
+      <plugin>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <configuration>
+          <configLocation>google_checks.xml</configLocation>
+          <failOnViolation>true</failOnViolation>
+          <failsOnError>true</failsOnError>
+          <linkXRef>false</linkXRef>
+          <logViolationsToConsole>true</logViolationsToConsole>
+          <violationSeverity>warning</violationSeverity>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.1.0</version>
+      </plugin>
+
+    </plugins>
+  </build>
+  <dependencies>
+    <!-- JUnit Jupiter -->
+    <dependency>
+      <artifactId>junit-jupiter-api</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>5.5.2</version>
+    </dependency>
+
+    <!-- Junit Jupiter Engine -->
+    <dependency>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>5.5.2</version>
+    </dependency>
+  </dependencies>
   <developers>
     <developer>
-      <id>felixklauke</id>
       <email>info@felix-klauke.de</email>
+      <id>felixklauke</id>
       <name>Felix Klauke</name>
-      <url>https://www.felix-klauke.com</url>
       <organization>Klauke Enterprises</organization>
       <organizationUrl>https://www.klauke-enterprises.com</organizationUrl>
+      <url>https://www.felix-klauke.com</url>
     </developer>
   </developers>
+
 
   <distributionManagement>
     <repository>
@@ -79,145 +189,5 @@
     </developerConnection>
     <url>https://github.com/FelixKlauke/maven-project-template</url>
   </scm>
-
-  <dependencies>
-    <!-- JUnit Jupiter -->
-    <dependency>
-      <artifactId>junit-jupiter-api</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>test</scope>
-      <version>5.5.2</version>
-    </dependency>
-
-    <!-- Junit Jupiter Engine -->
-    <dependency>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>test</scope>
-      <version>5.5.2</version>
-    </dependency>
-  </dependencies>
-
-  <build>
-    <plugins>
-
-      <!-- Maven Surefire -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven.plguin.surefire.version}</version>
-      </plugin>
-
-      <!-- Maven Compiler -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven.plugin.compiler.version}</version>
-        <configuration>
-          <source>11</source>
-          <target>11</target>
-        </configuration>
-      </plugin>
-
-      <!-- Maven release plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>${maven.plugin.release.version}</version>
-      </plugin>
-
-      <!-- SonarQube -->
-      <plugin>
-        <groupId>org.sonarsource.scanner.maven</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>${maven.plugin.sonar.version}</version>
-      </plugin>
-
-      <!-- JaCocCo -->
-      <plugin>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <configuration>
-          <append>true</append>
-          <destFile>${sonar.jacoco.reportPaths}</destFile>
-        </configuration>
-        <executions>
-          <!-- Prepare Agent -->
-          <execution>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-            <id>jacoco-initialize</id>
-          </execution>
-
-          <!-- Create reports -->
-          <execution>
-            <goals>
-              <goal>report</goal>
-            </goals>
-            <id>jacoco-site</id>
-            <phase>package</phase>
-          </execution>
-        </executions>
-
-        <!-- Aggregate the reports in the given sonar repo -->
-        <groupId>org.jacoco</groupId>
-
-        <version>${maven.plugin.jacoco.version}</version>
-      </plugin>
-
-      <!-- Maven Source plugin -->
-      <plugin>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-            <id>attach-sources</id>
-          </execution>
-        </executions>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>${maven.plugin.source.version}</version>
-      </plugin>
-
-      <!-- Maven JavaDocs plugin -->
-      <plugin>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-            <id>attach-javadocs</id>
-          </execution>
-        </executions>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>${maven.plugin.javadoc.version}</version>
-      </plugin>
-
-      <!-- Maven Checkstyle Plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-          <configLocation>google_checks.xml</configLocation>
-          <logViolationsToConsole>true</logViolationsToConsole>
-          <failOnViolation>true</failOnViolation>
-          <failsOnError>true</failsOnError>
-          <violationSeverity>warning</violationSeverity>
-          <linkXRef>false</linkXRef>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-    </plugins>
-  </build>
 
 </project>
